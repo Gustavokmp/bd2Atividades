@@ -1,0 +1,26 @@
+create table pessoa(
+    id_pessoa int,
+    nome varchar(100),
+    cpf varchar(14),
+    dataNacimento date,
+    constraint id_pessoaPK primary key(id_pessoa)
+);
+
+create table endereco(
+    id_endereco int,
+    id_pessoa int,
+    estado varchar(100),
+    cidade varchar(100),
+    rua varchar(100),
+    numero int,
+    constraint id_enderecoPK primary key(id_endereco),
+    constraint id_pessoaCP foreign key(id_pessoa) references pessoa(id_pessoa)
+);
+
+create table Telefone(
+    id_telefone int,
+    id_pessoa int,
+    numero int,
+    constraint id_telefonePK primary key(id_telefone),
+    constraint id_pessoaCP foreign key(id_pessoa) references pessoa(id_pessoa)
+);
